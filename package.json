@@ -1,0 +1,38 @@
+{
+  "name": "victodolist",
+  "version": "1.0.0",
+  "description": "Todo list with more features",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/5992/Victodolist.git"
+  },
+  "keywords": [
+    "Vic",
+    "todo"
+  ],
+  "author": "Vic Duong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/5992/Victodolist/issues"
+  },
+  "homepage": "https://github.com/5992/Victodolist#readme",
+  "devDependencies": {
+    "browser-sync": "^2.24.4",
+    "browserify": "^16.2.0",
+    "gulp": "^3.9.1",
+    "gulp-plumber": "^1.2.0",
+    "gulp-prettify": "^0.5.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-typescript": "^4.0.2",
+    "gulp-watch": "^5.0.0",
+    "run-sequence": "^2.2.1",
+    "tsify": "^4.0.0",
+    "typescript": "^2.8.3",
+    "vinyl-source-stream": "^2.0.0"
+  }
+}
