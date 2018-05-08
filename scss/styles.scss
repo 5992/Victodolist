@@ -63,6 +63,7 @@ body {font-family: "Lato", sans-serif;}
 body{
   @include reset;
   background-color: #ffffff;
+
 }
 header{
   background-color: $theme-light;
@@ -70,10 +71,10 @@ header{
   //justify-content: space-between;
   text-align: center;
   .logo{
-    padding-top: 5px;
-    max-width: 100px;
-    max-height: 100px;
-    display: block;
+      padding-top: 5px;
+      max-width: 100px;
+      max-height: 100px;
+      display: block;
     margin-left: auto;
     margin-right: auto
   }
@@ -86,51 +87,60 @@ header{
 }
 #task-form{ //add button textbox
   //@include flex(row);
+
+
   input{
-      flex:1;
-      padding: 5px;
-      box-sizing: border-box;
-      border: 1px solid $theme-color;
-    }
-    input:focus{
-      background-color: antiquewhite;
-      outline: none;
-    }
-    button{
-      max-width: 50px;
-      padding:5px;
-      background-color: $theme-dark;
-      color:white;
-    }
+    flex:1;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid $theme-color;
+  }
+  input:focus{
+    background-color: antiquewhite;
+    outline: none;
+
+  }
+  button{
+    max-width: 50px;
+    padding:5px;
+    background-color: $theme-dark;
+    color:white;
+  }
 }
 
 #task-list{
   @include reset;
   list-style: none;
+  width: 700px;
+
   li{
-    border-bottom: 1px solid #cccccc;
+    border-bottom: 0.5px solid #383735;//#cccccc;
     .task-container{
+      background: linear-gradient(to right, #f7eca3, #fcf5c7);
       @include flex(row);
       justify-content: space-between;
+
+      align-items: center;
       .task-name{
-        padding: 1em;
+           padding: 1em;
       }
       .task-buttons{
-        @include flex(row);
-        button{
-          width: 48px;
-          height: 48px;
-          font-size: 1.5em;
-          background-color: transparent;
-          border: 1px solid transparent;
-        }
-        button:focus{
-          outline: none;
-          background-color: #cccccc;
-        }
-        button[data-function="status"]{
-          font-size:1em;
-        }
+          @include flex(row);
+          button{
+              width: 48px;
+              height: 48px;
+              font-size: 1.5em;
+              background-color: transparent;
+              border: 1px solid transparent;
+
+          }
+          button:focus{
+              outline: none;
+              background-color: #cccccc;
+          }
+          button[data-function="status"]{
+            font-size:1em;
+          }
       }
     }
   }

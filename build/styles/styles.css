@@ -106,3 +106,8 @@ header {
         #task-list li .task-container .task-buttons button:focus {
           outline: none;
           background-color: #cccccc; }
+        #task-list li .task-container .task-buttons button[data-function="status"] {
+          font-size: 1em; }
+  #task-list li[data-status="true"] .task-name {
+    text-decoration: line-through;
+    opacity: 0.5; }
