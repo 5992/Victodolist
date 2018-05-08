@@ -3,7 +3,6 @@ import { Task } from '../ts/task';
 import { TaskManager } from '../ts/taskmanager';
 import { DataStorage } from '../ts/datastorage';
 
-
 //initialise
 var taskarray:Array<any> = [];
 var taskstorage = new DataStorage();
