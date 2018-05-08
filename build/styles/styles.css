@@ -87,7 +87,8 @@ header {
   #task-list li {
     border-bottom: 0.5px solid #383735; }
     #task-list li .task-container {
-      background: linear-gradient(to right, #f7eca3, #fcf5c7);
+      background-color: #ddffdd;
+      border-left: 6px solid #4CAF50;
       display: flex;
       flex-direction: row;
       justify-content: space-between;

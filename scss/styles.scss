@@ -116,7 +116,9 @@ header{
   li{
     border-bottom: 0.5px solid #383735;//#cccccc;
     .task-container{
-      background: linear-gradient(to right, #f7eca3, #fcf5c7);
+      //background: linear-gradient(to right, #f7eca3, #fcf5c7);
+      background-color: #ddffdd;
+      border-left: 6px solid #4CAF50;
       @include flex(row);
       justify-content: space-between;
 

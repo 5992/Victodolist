@@ -58,13 +58,40 @@ function getParentId(elm:Node){
   return null;
 }
 
+
 const listelement:HTMLElement = document.getElementById('task-list');
 listelement.addEventListener('click', ( event: Event) => {
   let target:HTMLElement = <HTMLElement> event.target;
   //find a way to get li element cause button inside <li>
   let id = getParentId( <Node> event.target);
   //console.log( id );
-  //we have 2 button = check which one we clicked
+  //we have some buttons = check which one we clicked
+
+//when edit button clicked
+  if ( target.getAttribute('data-function') == 'edit'){
+//    document.getElementById('task-input').focus();
+//  document.getElementById('task-input').clear();
+    const input = document.getElementById('task-input');
+    input.focus();
+    (<HTMLInputElement>input).placeholder = 'Edit task name here';
+
+
+    if( id ){
+      const input = document.getElementById('task-input');
+      let newname = (<HTMLInputElement>input).value;
+      if(newname.length > 0){
+        taskmanager.edit(id, newname, () => {
+          taskstorage.store( taskarray, () => {
+            (<HTMLInputElement>input).placeholder = '+ Add a task';
+            taskform.reset(); //clear input text field
+            listview.clear();
+            listview.render( taskarray );
+          });
+        });
+      }
+    }
+  }
+
   if ( target.getAttribute('data-function') == 'status'){//status button get clicked
     if( id ){
       taskmanager.changeStatus( id, () => {//callback tell the system change status when status changed
@@ -72,8 +99,6 @@ listelement.addEventListener('click', ( event: Event) => {
           listview.clear();
           listview.render( taskarray );
         });
-        //listview.clear();
-        //listview.reander(taskarray);
       } );
     }
   }
@@ -84,7 +109,6 @@ listelement.addEventListener('click', ( event: Event) => {
           listview.clear();
           listview.render( taskarray );
         });
-
       });
     }
   }

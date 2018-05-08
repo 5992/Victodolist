@@ -11,6 +11,22 @@ export class TaskManager {
     this.tasks.push(task);
     this.sort( this.tasks );
   }
+  edit( id:String, newname:string,callback):void{
+    this.tasks.forEach((task:Task) => {
+      if(task.id == id){
+        task.name = newname;
+      }
+    });
+    callback();
+  }
+  getName(id: String, callback){
+    this.tasks.forEach((task:Task) => {
+      if(task.id == id){
+        return task.name;
+      }
+    });
+    callback();
+  }
   changeStatus( id:String, callback ):void{
   this.tasks.forEach((task:Task) => {
       if(task.id == id){
