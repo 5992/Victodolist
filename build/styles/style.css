@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: "Lato", sans-serif; }
+
+/* Style the tab */
+.tab {
+  float: left;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  width: 30%;
+  height: 1000px; }
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s; }
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd; }
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background-color: #ccc; }
+
+/* Style the tab content */
+.tabcontent {
+  float: left;
+  padding: 0px 12px;
+  border: 1px solid #ccc;
+  width: 70%;
+  border-left: none;
+  height: 1000px; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff; }
+
+header {
+  background-color: #dce7f7;
+  text-align: center; }
+  header .logo {
+    padding-top: 5px;
+    max-width: 100px;
+    max-height: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
+  header h1 {
+    margin: 0;
+    padding: 5px;
+    padding: 5px;
+    color: #275eae; }
+
+#task-form input {
+  flex: 1;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 1px solid #74a0e0; }
+
+#task-form input:focus {
+  background-color: antiquewhite;
+  outline: none; }
+
+#task-form button {
+  max-width: 50px;
+  padding: 5px;
+  background-color: #275eae;
+  color: white; }
+
+#task-list {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  #task-list li {
+    border-bottom: 1px solid #cccccc; }
+    #task-list li .task-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between; }
+      #task-list li .task-container .task-name {
+        padding: 1em; }
+      #task-list li .task-container .task-buttons {
+        display: flex;
+        flex-direction: row; }
+        #task-list li .task-container .task-buttons button {
+          width: 48px;
+          height: 48px;
+          font-size: 1.5em;
+          background-color: transparent;
+          border: 1px solid transparent; }
+        #task-list li .task-container .task-buttons button:focus {
+          outline: none;
+          background-color: #cccccc; }
+        #task-list li .task-container .task-buttons button[data-function="status"] {
+          font-size: 1em; }
+  #task-list li[data-status="true"] .task-name {
+    text-decoration: line-through;
+    opacity: 0.5; }

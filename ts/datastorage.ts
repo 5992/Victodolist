@@ -3,15 +3,21 @@ import { Task } from '../ts/task';
 export class DataStorage{
   storage;
   constructor(){
-    this.storage = window.localStorage;
+      this.storage = window.localStorage;
   }
-  store( array:Array <Task> ){
+  store( array:Array <Task>, callback ){
     let data = JSON.stringify( array);
-    this.storage.setItem('taskdata', data);
+    let storestatus = this.storage.setItem('taskdata', data); //successful
+    if ( storestatus ){
+     callback( true );
+    }
+    else {
+      callback( false );
+    }
   }
-  read(){
-    let data = this.storage.getItem('taskdata');
-    let array = JSON.parse(data);
-    return array;
+  read( callback ){
+      let data = this.storage.getItem('taskdata');
+      let array = JSON.parse( data );
+      callback( array );
   }
 }

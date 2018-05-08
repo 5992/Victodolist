@@ -1,30 +1,28 @@
 import { Task } from '../ts/task';
 
-export class TaskManager{
-  tasks : Array<Task>;
+export class TaskManager {
+  tasks: Array<Task>;
 
   constructor( array: Array<Task>){
     this.tasks = array;
   }
-
   add( task: Task ){
     this.tasks.push(task);
-    console.log( this.tasks );
+    this.sort( this.tasks );
   }
-  //change to complete status when click on check icon
   changeStatus( id:String, callback ):void{
-    this.tasks.forEach((task:Task) => {
-        if(task.id == id){
-            console.log( task.id );
-            if(task.status == false ){
-                task.status = true;
-            }
-            else{
-                task.status = false;
-            }
-        }
-    });
-    callback();
+  this.tasks.forEach((task:Task) => {
+      if(task.id == id){
+          console.log( task.id );
+          if(task.status == false ){
+              task.status = true;
+          }
+          else{
+              task.status = false;
+          }
+      }
+  });
+  callback();
   }
   delete( id:string, callback ){
     let index_to_remove: number = undefined;

@@ -9,13 +9,13 @@ export class ListView{
     items.forEach((task) => {
       let id = task.id;
       let name = task.name;
-      let status = task.status;
+      let status = task.status.toString();
       let template = `<li id="${id}" data-status="${status}">
                       <div class="task-container">
                           <div class="task-name">${name}</div>
                       <div class="task-buttons">
                           <button type="button" data-function="status">&#x2714;</button>
-                          <button type="button" data-function="delete">&times;</button>
+                          <button type="button" data-function-"delete">&times;</button>
       </div>
       </div>
       <li>`;
