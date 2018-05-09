@@ -23,7 +23,6 @@
       </header>
     </div>
     <main>
-      <p>To see each type of tasks, click on the buttons inside the tabbed menu:</p>
       <div class="tab">
         <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'Tasks')">Tasks</button>
       </div>
@@ -35,6 +34,26 @@
         <li>After enter new name, click on Edit icon again to save new name</li>
         <p></p>
         <ul id="task-list"></ul>
+        <script>
+          document.getElementById("defaultOpen").click();
+
+          function openCity(evt, cityName)
+          {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++)
+            {
+              tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++)
+            {
+              tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+          }
+        </script>
       </div>
     </main>
     <script src="./js/main.js"></script>

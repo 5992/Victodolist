@@ -15,11 +15,13 @@ html
           .row
             input#task-input(type='text', placeholder='+ Add a Task')
             button#task-add(type='submit') Add
+            
+
     main
 
-      p To see each type of tasks, click on the buttons inside the tabbed menu:
       .tab
         button#defaultOpen.tablinks(onclick="openCity(event, 'Tasks')") Tasks
+
       #Tasks.tabcontent
         h3 Inprogress Tasks
         p Tasks are not completed storing in this tab.
@@ -29,5 +31,20 @@ html
         p
         ul#task-list
 
+        script.
+          document.getElementById("defaultOpen").click();
+          function openCity(evt, cityName) {
+          var i, tabcontent, tablinks;
 
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(cityName).style.display = "block";
+          evt.currentTarget.className += " active";
+          }
     script(src='./js/main.js')

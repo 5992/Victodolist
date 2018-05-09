@@ -28,18 +28,19 @@ export class TaskManager {
     callback();
   }
   changeStatus( id:String, callback ):void{
-  this.tasks.forEach((task:Task) => {
-      if(task.id == id){
-          console.log( task.id );
-          if(task.status == false ){
-              task.status = true;
-          }
-          else{
-              task.status = false;
-          }
-      }
-  });
-  callback();
+    this.tasks.forEach((task:Task) => {
+        if(task.id == id){
+            console.log( task.id );
+            if(task.status == false ){
+                task.status = true;
+            }
+            else{
+                task.status = false;
+            }
+        }
+    });
+    this.sort( this.tasks );
+    callback();
   }
   delete( id:string, callback ){
     let index_to_remove: number = undefined;
@@ -52,20 +53,21 @@ export class TaskManager {
     if ( index_to_remove !== undefined ){
       this.tasks.splice (index_to_remove, 1);
     }
-    this.sort( this.tasks );
     callback();
   }
-  sort( tasks: Array<Task>){
-    tasks.sort((task1, task2) => {
-      if ( task1.status == true && task2.status == false){
-        return 1;
-      }
-      if ( task1.status == false && task2.status == true){
-        return -1;
-      }
-      if ( task1.status == task2.status ){
-        return 0;
-      }
-    })
-  }
+  sort( tasks:Array<Task> ){
+   tasks.sort((task1,task2) => {
+     let id1:number = parseInt( task1.id );
+     let id2:number = parseInt( task2.id );
+     if( task1.status == true && task2.status == false ){
+       return 1;
+     }
+     if( task1.status == false && task2.status == true ){
+       return -1;
+     }
+     if( task1.status  == task2.status ){
+       return 0;
+     }
+   })
+ }
 }

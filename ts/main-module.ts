@@ -23,7 +23,6 @@ function getParentId(elm:Node){
   return null;
 }
 
-
 //app loads - show list of tasks storing in storage
 window.addEventListener('load', () => {
    let taskdata = taskstorage.read( (data) => {
@@ -35,8 +34,11 @@ window.addEventListener('load', () => {
        listview.render( taskarray );
      }
    });
-});
 
+  //const cancel = document.getElementById('cancel');
+  //(<HTMLInputElement>cancel).style.visibility = "hidden";
+
+});
 
 
 
@@ -44,7 +46,7 @@ window.addEventListener('load', () => {
 const taskform = (<HTMLFormElement> document.getElementById('task-form'));
 taskform.addEventListener('submit',( event: Event) => {
   event.preventDefault();
-const input = document.getElementById('task-input');
+  const input = document.getElementById('task-input');
   let taskname = (<HTMLInputElement>input).value;
     taskform.reset();
  // console.log(taskname);
@@ -66,7 +68,6 @@ const input = document.getElementById('task-input');
       });
         listview.render(taskarray);
     }
-
 });
 
 
@@ -82,12 +83,14 @@ listelement.addEventListener('click', ( event: Event) => {
   if ( target.getAttribute('data-function') == 'edit'){
     const input = document.getElementById('task-input');
     const add = document.getElementById('task-add');
+    //const cancelEdit = document.getElementById('cancel');
+    //(<HTMLInputElement>cancelEdit).style.visibility = "visible";
+
     input.focus();
     (<HTMLInputElement>input).placeholder = 'Edit task name here';
     (<HTMLInputElement>add).disabled = true;
     (<HTMLInputElement>add).innerHTML = 'Add disabled';
-    //console.log(event.target);
-    //document.getElementById('task-add').;
+
     if( id ){
       let newname = (<HTMLInputElement>input).value;
       if(newname.length > 0){
@@ -96,6 +99,7 @@ listelement.addEventListener('click', ( event: Event) => {
             (<HTMLInputElement>add).disabled = false;
             (<HTMLInputElement>input).placeholder = '+ Add a task';
             (<HTMLInputElement>add).innerHTML = 'Add';
+            //(<HTMLInputElement>cancelEdit).style.visibility = "hidden";
             taskform.reset(); //clear input text field
             listview.clear();
             listview.render( taskarray );
@@ -105,10 +109,26 @@ listelement.addEventListener('click', ( event: Event) => {
     }
   }
 
+  if ( target.getAttribute('data-function') == 'canceledit'){
+    //cancel edit state
+    const add = document.getElementById('task-add');
+    const input = document.getElementById('task-input');
+    (<HTMLInputElement>add).disabled = false;
+    (<HTMLInputElement>input).placeholder = '+ Add a task';
+    (<HTMLInputElement>add).innerHTML = 'Add';
+  }
+
   if ( target.getAttribute('data-function') == 'status'){//status button get clicked
     if( id ){
-      taskmanager.changeStatus( id, () => {//callback tell the system change status when status changed
+      taskmanager.changeStatus( id, () =>{//callback tell the system change status when status changed
         taskstorage.store( taskarray, () => {
+          //cancel edit state
+          const add = document.getElementById('task-add');
+          const input = document.getElementById('task-input');
+          (<HTMLInputElement>add).disabled = false;
+          (<HTMLInputElement>input).placeholder = '+ Add a task';
+          (<HTMLInputElement>add).innerHTML = 'Add';
+
           listview.clear();
           listview.render( taskarray );
         });
@@ -119,6 +139,13 @@ listelement.addEventListener('click', ( event: Event) => {
     if( id ){
       taskmanager.delete( id, () => {
         taskstorage.store(taskarray,()=>{
+          //cancel edit state
+          const add = document.getElementById('task-add');
+          const input = document.getElementById('task-input');
+          (<HTMLInputElement>add).disabled = false;
+          (<HTMLInputElement>input).placeholder = '+ Add a task';
+          (<HTMLInputElement>add).innerHTML = 'Add';
+
           listview.clear();
           listview.render( taskarray );
         });
