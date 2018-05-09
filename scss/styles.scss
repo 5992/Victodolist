@@ -85,10 +85,17 @@ header{
     color: $theme-dark;
   }
 }
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+
 #task-form{ //add button textbox
   //@include flex(row);
-
-
   input{
     flex:1;
     padding: 5px;
@@ -101,7 +108,7 @@ header{
 
   }
   button{
-    max-width: 50px;
+    max-width: 200px;
     padding:5px;
     background-color: $theme-dark;
     color:white;

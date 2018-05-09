@@ -81,16 +81,21 @@ listelement.addEventListener('click', ( event: Event) => {
   //when edit button clicked
   if ( target.getAttribute('data-function') == 'edit'){
     const input = document.getElementById('task-input');
+    const add = document.getElementById('task-add');
     input.focus();
     (<HTMLInputElement>input).placeholder = 'Edit task name here';
-
+    (<HTMLInputElement>add).disabled = true;
+    (<HTMLInputElement>add).innerHTML = 'Add disabled';
+    //console.log(event.target);
+    //document.getElementById('task-add').;
     if( id ){
-      const input = document.getElementById('task-input');
       let newname = (<HTMLInputElement>input).value;
       if(newname.length > 0){
         taskmanager.edit(id, newname, () => {
           taskstorage.store( taskarray, () => {
+            (<HTMLInputElement>add).disabled = false;
             (<HTMLInputElement>input).placeholder = '+ Add a task';
+            (<HTMLInputElement>add).innerHTML = 'Add';
             taskform.reset(); //clear input text field
             listview.clear();
             listview.render( taskarray );
