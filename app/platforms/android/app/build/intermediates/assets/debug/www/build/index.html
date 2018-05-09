@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To Do List</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <div class="row">
+          <div class="logo">
+            <img class="logo" src="./images/logo.png">
+          </div>
+          <h1>To Do</h1>
+        </div>
+        <form id="task-form">
+          <div class="row">
+            <input id="task-input" type="text" placeholder="+ Add a Task">
+            <button id="task-add" type="submit">Add</button>
+          </div>
+        </form>
+      </header>
+    </div>
+    <main>
+      <h3>To do</h3>
+      <h4>Instruction</h4>
+      <p>For editing task name:</p>
+      <li>Click on Edit icon once to focus on input textbox</li>
+      <li>After enter new name, click on Edit icon again to save new name</li>
+      <p></p>
+      <ul id="task-list"></ul>
+    </main>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

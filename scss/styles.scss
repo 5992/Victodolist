@@ -78,56 +78,62 @@ button[disabled]{
   }
 }
 main{
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 #task-list{
   @include reset;
   list-style: none;
-  //padding-left: -50px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-
 
   li{
     border-bottom: 0.5px solid #383735;//#cccccc;
 
     .task-container{
-      //background: linear-gradient(to right, #f7eca3, #fcf5c7);
-      background-color: #ddffdd;
-      border-left: 6px solid #4CAF50;
-      @include flex(row);
-      justify-content: space-between;
+        //background: linear-gradient(to right, #f7eca3, #fcf5c7);
+        background-color: #ddffdd;
+        border-left: 6px solid #4CAF50;
 
-      align-items: center;
-      .task-name{
-           padding: 1em;
-      }
-      .task-buttons{
-          @include flex(row);
-          button{
+        @include flex(row);
+        justify-content: space-between;
+        align-items: center;
+
+        .task-name{
+             padding: 1em;
+        }
+        .task-buttons{
+            @include flex(row);
+            button{
               width: 48px;
               height: 48px;
               font-size: 1em;
-              background-color: #555;//transparent;
+              background-color:transparent;
               border: 1px solid transparent;
-
-          }
-          button:focus{
+            }
+            button:focus{
               outline: none;
-              background-color: #cccccc;
-          }
-          button[data-function="status"]{
-            font-size:1em;
+              background-color: white;
+            }
+            button:active{
+              background-color: #fff;
+            }
+
+            button[data-function="canceledit"]{
+              font-size:12px;
+            }
           }
       }
+  }
+  li[data-status="true"]{
+    .task-name{
+      text-decoration: line-through;
+      opacity: 0.5;
     }
-    li[data-status="true"]{
-      .task-name{
-        text-decoration: line-through;
-        opacity: 0.5;
-      }
+    button[data-function="status"]{
+      background-color: green;
+      color:white;
     }
   }
 }
