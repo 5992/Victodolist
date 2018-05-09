@@ -15,36 +15,16 @@ html
           .row
             input#task-input(type='text', placeholder='+ Add a Task')
             button#task-add(type='submit') Add
-            
+
 
     main
-
-      .tab
-        button#defaultOpen.tablinks(onclick="openCity(event, 'Tasks')") Tasks
-
-      #Tasks.tabcontent
-        h3 Inprogress Tasks
-        p Tasks are not completed storing in this tab.
+        h3 To do
+        h4 Instruction
         p For editing task name:
         li Click on Edit icon once to focus on input textbox
         li After enter new name, click on Edit icon again to save new name
         p
         ul#task-list
 
-        script.
-          document.getElementById("defaultOpen").click();
-          function openCity(evt, cityName) {
-          var i, tabcontent, tablinks;
 
-          tabcontent = document.getElementsByClassName("tabcontent");
-          for (i = 0; i < tabcontent.length; i++) {
-          tabcontent[i].style.display = "none";
-          }
-          tablinks = document.getElementsByClassName("tablinks");
-          for (i = 0; i < tablinks.length; i++) {
-          tablinks[i].className = tablinks[i].className.replace(" active", "");
-          }
-          document.getElementById(cityName).style.display = "block";
-          evt.currentTarget.className += " active";
-          }
     script(src='./js/main.js')

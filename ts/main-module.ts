@@ -89,7 +89,6 @@ listelement.addEventListener('click', ( event: Event) => {
     input.focus();
     (<HTMLInputElement>input).placeholder = 'Edit task name here';
     (<HTMLInputElement>add).disabled = true;
-    (<HTMLInputElement>add).innerHTML = 'Add disabled';
 
     if( id ){
       let newname = (<HTMLInputElement>input).value;
@@ -98,7 +97,6 @@ listelement.addEventListener('click', ( event: Event) => {
           taskstorage.store( taskarray, () => {
             (<HTMLInputElement>add).disabled = false;
             (<HTMLInputElement>input).placeholder = '+ Add a task';
-            (<HTMLInputElement>add).innerHTML = 'Add';
             //(<HTMLInputElement>cancelEdit).style.visibility = "hidden";
             taskform.reset(); //clear input text field
             listview.clear();
@@ -115,7 +113,6 @@ listelement.addEventListener('click', ( event: Event) => {
     const input = document.getElementById('task-input');
     (<HTMLInputElement>add).disabled = false;
     (<HTMLInputElement>input).placeholder = '+ Add a task';
-    (<HTMLInputElement>add).innerHTML = 'Add';
   }
 
   if ( target.getAttribute('data-function') == 'status'){//status button get clicked
@@ -127,7 +124,6 @@ listelement.addEventListener('click', ( event: Event) => {
           const input = document.getElementById('task-input');
           (<HTMLInputElement>add).disabled = false;
           (<HTMLInputElement>input).placeholder = '+ Add a task';
-          (<HTMLInputElement>add).innerHTML = 'Add';
 
           listview.clear();
           listview.render( taskarray );
@@ -144,7 +140,6 @@ listelement.addEventListener('click', ( event: Event) => {
           const input = document.getElementById('task-input');
           (<HTMLInputElement>add).disabled = false;
           (<HTMLInputElement>input).placeholder = '+ Add a task';
-          (<HTMLInputElement>add).innerHTML = 'Add';
 
           listview.clear();
           listview.render( taskarray );

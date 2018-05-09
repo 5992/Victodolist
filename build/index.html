@@ -23,38 +23,13 @@
       </header>
     </div>
     <main>
-      <div class="tab">
-        <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'Tasks')">Tasks</button>
-      </div>
-      <div class="tabcontent" id="Tasks">
-        <h3>Inprogress Tasks</h3>
-        <p>Tasks are not completed storing in this tab.</p>
-        <p>For editing task name:</p>
-        <li>Click on Edit icon once to focus on input textbox</li>
-        <li>After enter new name, click on Edit icon again to save new name</li>
-        <p></p>
-        <ul id="task-list"></ul>
-        <script>
-          document.getElementById("defaultOpen").click();
-
-          function openCity(evt, cityName)
-          {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++)
-            {
-              tabcontent[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++)
-            {
-              tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(cityName).style.display = "block";
-            evt.currentTarget.className += " active";
-          }
-        </script>
-      </div>
+      <h3>To do</h3>
+      <h4>Instruction</h4>
+      <p>For editing task name:</p>
+      <li>Click on Edit icon once to focus on input textbox</li>
+      <li>After enter new name, click on Edit icon again to save new name</li>
+      <p></p>
+      <ul id="task-list"></ul>
     </main>
     <script src="./js/main.js"></script>
   </body>

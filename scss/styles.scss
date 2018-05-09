@@ -2,44 +2,6 @@ $theme-color: #74a0e0;
 $theme-light: lighten($theme-color, 25%);
 $theme-dark: darken($theme-color,25%);
 
-* {box-sizing: border-box}
-body {font-family: "Lato", sans-serif;}
-/* Style the tab */
-.tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f7965d;//#02f992;
-}
-
-/* Style the buttons that are used to open the tab content */
-.tab button {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-    background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-    background-color: white;
-}
-
-/* Style the tab content */
-.tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
-}
-
 @mixin reset{
   margin:0;
   padding:0;
@@ -56,8 +18,9 @@ body {font-family: "Lato", sans-serif;}
 body{
   @include reset;
   background-color: #ffffff;
-
+  font-family: "Lato", sans-serif;
 }
+
 header{
   background-color: $theme-light;
   padding-bottom: 5px;
@@ -71,7 +34,7 @@ header{
       max-height: 100px;
       display: block;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
   }
   h1{
     margin: 0;
@@ -83,14 +46,12 @@ header{
 
 button:disabled,
 button[disabled]{
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 
 #task-form{ //add button textbox
-  //@include flex(row);
   input{
     flex:1;
     padding: 5px;
@@ -98,25 +59,40 @@ button[disabled]{
     border: 1px solid $theme-color;
   }
   input:focus{
-    background-color: antiquewhite;
+    background-color:antiquewhite;
     outline: none;
 
   }
   button{
-    max-width: 200px;
-    padding:5px;
-    background-color: $theme-dark;
-    color:white;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+  }
+  button:hover{
+    box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }
 }
-
+main{
+  margin-left: 20px;
+  margin-right: 20px;
+}
 #task-list{
   @include reset;
   list-style: none;
+  //padding-left: -50px;
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
+
 
   li{
     border-bottom: 0.5px solid #383735;//#cccccc;
+
     .task-container{
       //background: linear-gradient(to right, #f7eca3, #fcf5c7);
       background-color: #ddffdd;
@@ -134,7 +110,7 @@ button[disabled]{
               width: 48px;
               height: 48px;
               font-size: 1em;
-              background-color: transparent;
+              background-color: #555;//transparent;
               border: 1px solid transparent;
 
           }
@@ -147,11 +123,11 @@ button[disabled]{
           }
       }
     }
-  }
-  li[data-status="true"]{
-    .task-name{
-      text-decoration: line-through;
-      opacity: 0.5;
+    li[data-status="true"]{
+      .task-name{
+        text-decoration: line-through;
+        opacity: 0.5;
+      }
     }
   }
 }
