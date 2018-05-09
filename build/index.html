@@ -26,42 +26,12 @@
       <p>To see each type of tasks, click on the buttons inside the tabbed menu:</p>
       <div class="tab">
         <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'Tasks')">Tasks</button>
-        <button class="tablinks" onclick="openCity(event, 'Completed')">Completed</button>
-        <button class="tablinks" onclick="openCity(event, 'Trash')">Trash</button>
       </div>
       <div class="tabcontent" id="Tasks">
         <h3>Inprogress Tasks</h3>
         <p>Tasks are not completed storing in this tab.</p>
         <ul id="task-list"></ul>
       </div>
-      <div class="tabcontent" id="Completed">
-        <h3>Completed Tasks</h3>
-        <p>Tasks are completed storing in this tab.</p>
-      </div>
-      <div class="tabcontent" id="Trash">
-        <h3>Trash</h3>
-        <p>Tasks are deleted storing in this tab.</p>
-      </div>
-      <script>
-        function openCity(evt, cityName)
-        {
-          var i, tabcontent, tablinks;
-          tabcontent = document.getElementsByClassName("tabcontent");
-          for (i = 0; i < tabcontent.length; i++)
-          {
-            tabcontent[i].style.display = "none";
-          }
-          tablinks = document.getElementsByClassName("tablinks");
-          for (i = 0; i < tablinks.length; i++)
-          {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-          }
-          document.getElementById(cityName).style.display = "block";
-          evt.currentTarget.className += " active";
-        }
-        // Get the element with id="defaultOpen" and click on it
-        document.getElementById("defaultOpen").click();
-      </script>
     </main>
     <script src="./js/main.js"></script>
   </body>

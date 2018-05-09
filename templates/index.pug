@@ -20,32 +20,10 @@ html
       p To see each type of tasks, click on the buttons inside the tabbed menu:
       .tab
         button#defaultOpen.tablinks(onclick="openCity(event, 'Tasks')") Tasks
-        button.tablinks(onclick="openCity(event, 'Completed')") Completed
-        button.tablinks(onclick="openCity(event, 'Trash')") Trash
       #Tasks.tabcontent
         h3 Inprogress Tasks
         p Tasks are not completed storing in this tab.
         ul#task-list
-      #Completed.tabcontent
-        h3 Completed Tasks
-        p Tasks are completed storing in this tab.
-      #Trash.tabcontent
-        h3 Trash
-        p Tasks are deleted storing in this tab.
-      script.
-        function openCity(evt, cityName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
-        }
-        // Get the element with id="defaultOpen" and click on it
-        document.getElementById("defaultOpen").click();
+
+
     script(src='./js/main.js')
