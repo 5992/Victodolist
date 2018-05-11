@@ -9,8 +9,6 @@ html
         a.closebtn(href='javascript:void(0)', onclick='closeNav()') &times;
         a(href='index.html') Todo
         a(href='instruction.html') Instruction
-
-
     #main
       .app
         header
@@ -21,20 +19,19 @@ html
             img.logo(src='./images/logo.png')
           h2 To Do
 
-      main
-      form#task-form
-        .row
-          input#task-input(type='text', placeholder='+ Add a Task')
-          button#task-add(type='submit') Add
-          ul#task-list
-
-    script.
-      function openNav() {
-        document.getElementById("mySidenav").style.width = "130px";
-        document.getElementById("main").style.marginLeft = "130px";
-      }
-      function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-        document.getElementById("main").style.marginLeft = "0";
-      }
+    #instruction
+        h4 Instruction
+        p For editing task name:
+        li Click on Edit icon once to focus on input textbox
+        li After enter new name, click on Edit icon again to save new name
+        p
+        script.
+          function openNav() {
+            document.getElementById("mySidenav").style.width = "130px";
+            document.getElementById("main").style.marginLeft = "130px";
+          }
+          function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+          }
     script(src='./js/main.js')

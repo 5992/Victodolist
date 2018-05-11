@@ -26,27 +26,26 @@
         <h2>To Do</h2>
       </header>
     </div>
-    <main></main>
-    <form id="task-form">
-      <div class="row">
-        <input id="task-input" type="text" placeholder="+ Add a Task">
-        <button id="task-add" type="submit">Add</button>
-        <ul id="task-list"></ul>
-      </div>
-    </form>
   </div>
-  <script>
-    function openNav()
-    {
-      document.getElementById("mySidenav").style.width = "130px";
-      document.getElementById("main").style.marginLeft = "130px";
-    }
+  <div id="instruction">
+    <h4>Instruction</h4>
+    <p>For editing task name:</p>
+    <li>Click on Edit icon once to focus on input textbox</li>
+    <li>After enter new name, click on Edit icon again to save new name</li>
+    <p></p>
+    <script>
+      function openNav()
+      {
+        document.getElementById("mySidenav").style.width = "130px";
+        document.getElementById("main").style.marginLeft = "130px";
+      }
 
-    function closeNav()
-    {
-      document.getElementById("mySidenav").style.width = "0";
-      document.getElementById("main").style.marginLeft = "0";
-    }
-  </script>
+      function closeNav()
+      {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+      }
+    </script>
+  </div>
   <script src="./js/main.js"></script>
 </html>
