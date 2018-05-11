@@ -32,12 +32,9 @@ window.addEventListener('load', () => {
        });
        listview.clear();
        listview.render( taskarray );
+
      }
    });
-
-  //const cancel = document.getElementById('cancel');
-  //(<HTMLInputElement>cancel).style.visibility = "hidden";
-
 });
 
 
@@ -81,13 +78,14 @@ listelement.addEventListener('click', ( event: Event) => {
 
   //when edit button clicked
   if ( target.getAttribute('data-function') == 'edit'){
+    //make cancel button visible
+    const cancel = document.getElementById('canceledit');
+    (<HTMLInputElement>cancel).style.visibility = "visible";
+    //focus on input and disable add task button
     const input = document.getElementById('task-input');
     const add = document.getElementById('task-add');
-    //const cancelEdit = document.getElementById('cancel');
-    //(<HTMLInputElement>cancelEdit).style.visibility = "visible";
-
     input.focus();
-    (<HTMLInputElement>input).placeholder = 'Edit task name here';
+    (<HTMLInputElement>input).placeholder = 'Edit task name here'; // change the placeholder text
     (<HTMLInputElement>add).disabled = true;
 
     if( id ){
@@ -95,9 +93,11 @@ listelement.addEventListener('click', ( event: Event) => {
       if(newname.length > 0){
         taskmanager.edit(id, newname, () => {
           taskstorage.store( taskarray, () => {
+            // enable the add button
             (<HTMLInputElement>add).disabled = false;
             (<HTMLInputElement>input).placeholder = '+ Add a task';
-            //(<HTMLInputElement>cancelEdit).style.visibility = "hidden";
+            //hide the cancel edit button after finish edit stage
+            (<HTMLInputElement>cancel).style.visibility = "hidden";
             taskform.reset(); //clear input text field
             listview.clear();
             listview.render( taskarray );
@@ -113,6 +113,10 @@ listelement.addEventListener('click', ( event: Event) => {
     const input = document.getElementById('task-input');
     (<HTMLInputElement>add).disabled = false;
     (<HTMLInputElement>input).placeholder = '+ Add a task';
+
+    //hide the cancel button
+    const cancel = document.getElementById('canceledit');
+    (<HTMLInputElement>cancel).style.visibility = "hidden";
   }
 
   if ( target.getAttribute('data-function') == 'status'){//status button get clicked
@@ -124,6 +128,10 @@ listelement.addEventListener('click', ( event: Event) => {
           const input = document.getElementById('task-input');
           (<HTMLInputElement>add).disabled = false;
           (<HTMLInputElement>input).placeholder = '+ Add a task';
+
+          //hide the cancel button
+          const cancel = document.getElementById('canceledit');
+          (<HTMLInputElement>cancel).style.visibility = "hidden";
 
           listview.clear();
           listview.render( taskarray );
@@ -140,6 +148,10 @@ listelement.addEventListener('click', ( event: Event) => {
           const input = document.getElementById('task-input');
           (<HTMLInputElement>add).disabled = false;
           (<HTMLInputElement>input).placeholder = '+ Add a task';
+
+          //hide the cancel button
+          const cancel = document.getElementById('canceledit');
+          (<HTMLInputElement>cancel).style.visibility = "hidden";
 
           listview.clear();
           listview.render( taskarray );

@@ -86,7 +86,8 @@ main {
         #task-list li .task-container .task-buttons button:active {
           background-color: #fff; }
         #task-list li .task-container .task-buttons button[data-function="canceledit"] {
-          font-size: 12px; }
+          font-size: 12px;
+          visibility: hidden; }
   #task-list li[data-status="true"] .task-name {
     text-decoration: line-through;
     opacity: 0.5; }
