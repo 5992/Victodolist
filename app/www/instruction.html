@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To Do List</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
+  </head>
+  <body>
+    <div class="sidenav" id="mySidenav">
+      <a class="closebtn" href="javascript:void(0)" onclick="closeNav()">&times;</a>
+      <a href="index.html">Todo</a>
+      <a href="instruction.html">Instruction</a>
+    </div>
+  </body>
+  <div id="main">
+    <div class="app">
+      <header>
+        <div class="row">
+          <p>
+            <span style="font-size:24px;cursor:pointer" onclick="openNav()">&#x2630;</span>
+          </p>
+        </div>
+        <div class="logo">
+          <a href="index.html">
+            <img class="logo" src="./images/logo.png">
+          </a>
+        </div>
+        <h2>To Do</h2>
+      </header>
+    </div>
+  </div>
+  <div id="instruction">
+    <h2>Instruction</h2>
+    <p>For editing task name:</p>
+    <li>Click on Edit icon once to focus on input textbox</li>
+    <li>After enter new name, click on Edit icon again to save new name</li>
+    <script>
+      function openNav()
+      {
+        document.getElementById("mySidenav").style.width = "130px";
+        document.getElementById("main").style.marginLeft = "130px";
+      }
+
+      function closeNav()
+      {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+      }
+    </script>
+  </div>
+  <script src="./js/main.js"></script>
+</html>

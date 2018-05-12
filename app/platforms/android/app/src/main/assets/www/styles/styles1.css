@@ -1,7 +1,8 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #ffffff; }
+  background-color: #ffffff;
+  font-family: "Lato", sans-serif; }
 
 header {
   background-color: #dce7f7;
@@ -49,7 +50,7 @@ button[disabled] {
 
 /* The navigation menu links */
 .sidenav a {
-  padding: 30px 8px 8px 15px;
+  padding: 8px 8px 8px 15px;
   text-decoration: none;
   font-size: 18px;
   color: #818181;
@@ -64,7 +65,6 @@ button[disabled] {
 .sidenav .closebtn {
   position: absolute;
   top: 0;
-  padding-top: 8px;
   right: 25px;
   font-size: 36px;
   margin-left: 50px; }
@@ -93,38 +93,36 @@ button[disabled] {
 
 #task-form input:focus {
   background-color: antiquewhite;
-  order: 1px solid dodgerblue; }
+  outline: none; }
 
 #task-form button {
   background-color: #4CAF50;
-  border: 0px solid transparent;
+  border: 0.5px solid transparent;
   color: white;
-  padding: 6px;
+  padding: 7px;
   font-size: 14px;
   width: 20%; }
 
 #task-form button:hover {
   box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19); }
 
-main p {
-  padding-top: 1px; }
-
 #task-list {
   margin: 0;
   padding: 0;
-  list-style: none; }
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%; }
   #task-list li {
-    border-top: 0.5px solid #4CAF50;
-    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.24); }
+    border-bottom: 0.5px solid #383735; }
     #task-list li .task-container {
-      background-color: white;
+      background-color: #ddffdd;
       border-left: 6px solid #4CAF50;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center; }
       #task-list li .task-container .task-name {
-        font-size: 14px;
         padding: 1em; }
       #task-list li .task-container .task-buttons {
         display: flex;
@@ -132,7 +130,7 @@ main p {
         #task-list li .task-container .task-buttons button {
           width: 48px;
           height: 48px;
-          font-size: 1.5em;
+          font-size: 1em;
           background-color: transparent;
           border: 1px solid transparent;
           color: black; }
@@ -143,12 +141,9 @@ main p {
           background-color: #fff; }
         #task-list li .task-container .task-buttons button#canceledit {
           font-size: 12px;
-          visibility: hidden;
-          width: auto; }
-  #task-list li[data-status="false"] button[data-function="status"] {
-    color: darkgray; }
+          visibility: hidden; }
   #task-list li[data-status="true"] .task-name {
     text-decoration: line-through;
     opacity: 0.5; }
   #task-list li[data-status="true"] button[data-function="status"] {
-    color: darkgreen; }
+    color: green; }

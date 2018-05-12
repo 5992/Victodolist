@@ -107,15 +107,19 @@ listelement.addEventListener('click', ( event: Event) => {
   }
 
   if ( target.getAttribute('data-function') == 'canceledit'){
+    if( id ){
     //cancel edit state
     const add = document.getElementById('task-add');
     const input = document.getElementById('task-input');
     (<HTMLInputElement>add).disabled = false;
     (<HTMLInputElement>input).placeholder = '+ Add a task';
-
-    //hide the cancel button
-    const cancel = document.getElementById('canceledit');
+    //hide cancel button
+    //const cancel = document.getElementById('canceledit');
+    const li = document.getElementById(id);
+    const cancel = li.getElementsByClassName("child")[0];
     (<HTMLInputElement>cancel).style.visibility = "hidden";
+    taskform.reset();
+    }
   }
 
   if ( target.getAttribute('data-function') == 'status'){//status button get clicked

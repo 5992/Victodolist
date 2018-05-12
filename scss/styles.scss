@@ -18,7 +18,6 @@ $theme-dark: darken($theme-color,25%);
 body{
   @include reset;
   background-color: #ffffff;
-  font-family: "Lato", sans-serif;
 }
 
 header{
@@ -98,6 +97,7 @@ button[disabled]{
 @media screen and (max-height: 450px){
     .sidenav {padding-top: 5px;}
     .sidenav a {font-size: 18px;}
+
 }
 
 #task-form{ //add button textbox
@@ -110,13 +110,13 @@ button[disabled]{
   }
   input:focus{
     background-color:antiquewhite;
-    order: 3px solid dodgerblue;
+    order: 1px solid dodgerblue;
   }
   button{
     background-color: #4CAF50;
-    border: 0.5px solid transparent;
+    border: 0px solid transparent;
     color: white;
-    padding: 7px;
+    padding: 6px;
     font-size: 14px;
     width:20%;
   }
@@ -124,17 +124,21 @@ button[disabled]{
     box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }
 }
-
+main p{
+  padding-top: 1px;
+}
 #task-list{
   @include reset;
   list-style: none;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
+  //margin-left: auto;
+  //margin-right: auto;
+  //width: 100%;
 
   li{
-    border-bottom: 0.5px solid #4CAF50;//#cccccc;
+    border-top: 0.5px solid #4CAF50;
+    //border-bottom: 0.5px solid #4CAF50;//#cccccc;
     box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24);
+
     .task-container{
         //background: linear-gradient(to right, #f7eca3, #fcf5c7);
         background-color: white;//#ddffdd;
