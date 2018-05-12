@@ -27,15 +27,16 @@ header{
   @include flex(row);
   justify-content: space-between;
   p span {
-    padding-left: 15px;
+    padding-left: 10px;
   }
   .logo{
       padding-top: 2px;
       max-width: 50px;
       max-height: 50px;
-  }
+      padding-left: 10px;
+ }
   h2{
-    padding-right: 15px;
+    padding-right: 10px;
     color: $theme-dark;
   }
 }
@@ -45,8 +46,6 @@ button[disabled]{
   opacity: 0.6;
   cursor: not-allowed;
 }
-
-
 
 /* The side navigation menu */
 .sidenav {
@@ -90,7 +89,10 @@ button[disabled]{
 #main {
     transition: margin-left .5s;
 }
-
+#instruction{
+    padding-left: 20px;
+    font-size: 14px;
+}
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px){
     .sidenav {padding-top: 5px;}
@@ -107,6 +109,7 @@ button[disabled]{
     box-sizing: border-box;
     border: 1px solid $theme-color;
     width:80%;
+    //  margin:0;
   }
   input:focus{
     background-color:antiquewhite;
@@ -167,9 +170,11 @@ button[disabled]{
               background-color: #fff;
             }
 
-            button[data-function="canceledit"]{
+            button#canceledit{
               font-size:12px;
-              visibility: hidden;
+              visibility:hidden;
+
+
             }
           }
       }
@@ -178,6 +183,7 @@ button[disabled]{
     .task-name{
       text-decoration: line-through;
       opacity: 0.5;
+      //background-color: lightgray;
     }
     button[data-function="status"]{
       color:green;

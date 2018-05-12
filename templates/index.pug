@@ -9,23 +9,23 @@ html
         a.closebtn(href='javascript:void(0)', onclick='closeNav()') &times;
         a(href='index.html') Todo
         a(href='instruction.html') Instruction
+      #main
+        .app
+          header
+            .row
+              p
+                span(style='font-size:24px;cursor:pointer', onclick='openNav()') &#x2630;
 
+            .logo
+              img.logo(src='./images/logo.png')
+            h2 To Do
 
-    #main
-      .app
-        header
-          .row
-            p
-              span(style='font-size:24px;cursor:pointer', onclick='openNav()') &#x2630;
-          .logo
-            img.logo(src='./images/logo.png')
-          h2 To Do
+        main
+          form#task-form
+            .row
+            input#task-input(type='text', placeholder='+ Add a Task')
+            button#task-add(type='submit') Add
 
-      main
-      form#task-form
-        .row
-          input#task-input(type='text', placeholder='+ Add a Task')
-          button#task-add(type='submit') Add
           ul#task-list
 
     script.

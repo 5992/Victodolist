@@ -19,14 +19,6 @@ export class TaskManager {
     });
     callback();
   }
-  getName(id: String, callback){
-    this.tasks.forEach((task:Task) => {
-      if(task.id == id){
-        return task.name;
-      }
-    });
-    callback();
-  }
   changeStatus( id:String, callback ):void{
     this.tasks.forEach((task:Task) => {
         if(task.id == id){

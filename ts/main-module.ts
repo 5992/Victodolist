@@ -47,7 +47,6 @@ taskform.addEventListener('submit',( event: Event) => {
   let taskname = (<HTMLInputElement>input).value;
     taskform.reset();
  // console.log(taskname);
-
     if (taskname.length > 0){
       let task = new Task( taskname );
       taskmanager.add( task );
@@ -71,16 +70,16 @@ taskform.addEventListener('submit',( event: Event) => {
 
 const listelement:HTMLElement = document.getElementById('task-list');
 listelement.addEventListener('click', ( event: Event) => {
+
   let target:HTMLElement = <HTMLElement> event.target;
   //find a way to get li element cause button inside <li>
   let id = getParentId( <Node> event.target);
-  //we have some buttons = check which one we clicked
 
+  console.log(id);
+  //we have some buttons = check which one we clicked
   //when edit button clicked
   if ( target.getAttribute('data-function') == 'edit'){
-    //make cancel button visible
-    const cancel = document.getElementById('canceledit');
-    (<HTMLInputElement>cancel).style.visibility = "visible";
+
     //focus on input and disable add task button
     const input = document.getElementById('task-input');
     const add = document.getElementById('task-add');
@@ -89,6 +88,13 @@ listelement.addEventListener('click', ( event: Event) => {
     (<HTMLInputElement>add).disabled = true;
 
     if( id ){
+      //make cancel button enable
+        const li = document.getElementById(id);
+        const cancel = li.getElementsByClassName("child")[0];
+
+        (<HTMLInputElement>cancel).style.visibility = "visible";
+        //(<HTMLInputElement>cancel).style.opacity = "100";
+
       let newname = (<HTMLInputElement>input).value;
       if(newname.length > 0){
         taskmanager.edit(id, newname, () => {
@@ -117,6 +123,10 @@ listelement.addEventListener('click', ( event: Event) => {
     //hide the cancel button
     const cancel = document.getElementById('canceledit');
     (<HTMLInputElement>cancel).style.visibility = "hidden";
+
+    taskform.reset();
+    listview.clear();
+    listview.render( taskarray );
   }
 
   if ( target.getAttribute('data-function') == 'status'){//status button get clicked
@@ -132,7 +142,7 @@ listelement.addEventListener('click', ( event: Event) => {
           //hide the cancel button
           const cancel = document.getElementById('canceledit');
           (<HTMLInputElement>cancel).style.visibility = "hidden";
-
+          taskform.reset();
           listview.clear();
           listview.render( taskarray );
         });
@@ -152,7 +162,7 @@ listelement.addEventListener('click', ( event: Event) => {
           //hide the cancel button
           const cancel = document.getElementById('canceledit');
           (<HTMLInputElement>cancel).style.visibility = "hidden";
-
+          taskform.reset();
           listview.clear();
           listview.render( taskarray );
         });
