@@ -9,7 +9,6 @@ var taskstorage = new DataStorage();
 var taskmanager = new TaskManager(taskarray);
 var listview = new ListView('task-list');
 
-
 //click button, event call this function to find id of button if have
 function getParentId(elm:Node){
   //loop element to find the id using while
@@ -37,8 +36,6 @@ window.addEventListener('load', () => {
    });
 });
 
-
-
 //reference to form
 const taskform = (<HTMLFormElement> document.getElementById('task-form'));
 taskform.addEventListener('submit',( event: Event) => {
@@ -46,7 +43,6 @@ taskform.addEventListener('submit',( event: Event) => {
   const input = document.getElementById('task-input');
   let taskname = (<HTMLInputElement>input).value;
     taskform.reset();
- // console.log(taskname);
     if (taskname.length > 0){
       let task = new Task( taskname );
       taskmanager.add( task );
@@ -56,7 +52,6 @@ taskform.addEventListener('submit',( event: Event) => {
         if(result){
           taskform.reset();
           listview.clear();
-          //listview.render(taskarray);
         }
         else{
           //error to do with storage
@@ -79,7 +74,6 @@ listelement.addEventListener('click', ( event: Event) => {
   //we have some buttons = check which one we clicked
   //when edit button clicked
   if ( target.getAttribute('data-function') == 'edit'){
-
     //focus on input and disable add task button
     const input = document.getElementById('task-input');
     const add = document.getElementById('task-add');
@@ -87,13 +81,12 @@ listelement.addEventListener('click', ( event: Event) => {
     (<HTMLInputElement>input).placeholder = 'Edit task name here'; // change the placeholder text
     (<HTMLInputElement>add).disabled = true;
 
+    const li = document.getElementById(id);
+    const cancel = li.getElementsByClassName("child")[0];
+
     if( id ){
       //make cancel button enable
-        const li = document.getElementById(id);
-        const cancel = li.getElementsByClassName("child")[0];
-
-        (<HTMLInputElement>cancel).style.visibility = "visible";
-        //(<HTMLInputElement>cancel).style.opacity = "100";
+      (<HTMLInputElement>cancel).style.visibility = "visible";
 
       let newname = (<HTMLInputElement>input).value;
       if(newname.length > 0){
@@ -123,10 +116,6 @@ listelement.addEventListener('click', ( event: Event) => {
     //hide the cancel button
     const cancel = document.getElementById('canceledit');
     (<HTMLInputElement>cancel).style.visibility = "hidden";
-
-    taskform.reset();
-    listview.clear();
-    listview.render( taskarray );
   }
 
   if ( target.getAttribute('data-function') == 'status'){//status button get clicked

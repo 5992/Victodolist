@@ -17,7 +17,8 @@ html
                 span(style='font-size:24px;cursor:pointer', onclick='openNav()') &#x2630;
 
             .logo
-              img.logo(src='./images/logo.png')
+              a(href='index.html')
+                img.logo(src='./images/logo.png')
             h2 To Do
 
         main
@@ -26,7 +27,7 @@ html
             input#task-input(type='text', placeholder='+ Add a Task')
             button#task-add(type='submit') Add
 
-          ul#task-list
+            ul#task-list
 
     script.
       function openNav() {

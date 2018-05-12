@@ -50,7 +50,7 @@ button[disabled] {
 
 /* The navigation menu links */
 .sidenav a {
-  padding: 8px 8px 8px 15px;
+  padding: 30px 8px 8px 15px;
   text-decoration: none;
   font-size: 18px;
   color: #818181;
@@ -65,6 +65,7 @@ button[disabled] {
 .sidenav .closebtn {
   position: absolute;
   top: 0;
+  padding-top: 8px;
   right: 25px;
   font-size: 36px;
   margin-left: 50px; }
@@ -93,7 +94,7 @@ button[disabled] {
 
 #task-form input:focus {
   background-color: antiquewhite;
-  outline: none; }
+  order: 3px solid dodgerblue; }
 
 #task-form button {
   background-color: #4CAF50;
@@ -114,15 +115,17 @@ button[disabled] {
   margin-right: auto;
   width: 100%; }
   #task-list li {
-    border-bottom: 0.5px solid #383735; }
+    border-bottom: 0.5px solid #4CAF50;
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.24); }
     #task-list li .task-container {
-      background-color: #ddffdd;
+      background-color: white;
       border-left: 6px solid #4CAF50;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center; }
       #task-list li .task-container .task-name {
+        font-size: 14px;
         padding: 1em; }
       #task-list li .task-container .task-buttons {
         display: flex;
@@ -130,7 +133,7 @@ button[disabled] {
         #task-list li .task-container .task-buttons button {
           width: 48px;
           height: 48px;
-          font-size: 1em;
+          font-size: 1.5em;
           background-color: transparent;
           border: 1px solid transparent;
           color: black; }
@@ -141,9 +144,12 @@ button[disabled] {
           background-color: #fff; }
         #task-list li .task-container .task-buttons button#canceledit {
           font-size: 12px;
-          visibility: hidden; }
+          visibility: hidden;
+          width: auto; }
+  #task-list li[data-status="false"] button[data-function="status"] {
+    color: darkgray; }
   #task-list li[data-status="true"] .task-name {
     text-decoration: line-through;
     opacity: 0.5; }
   #task-list li[data-status="true"] button[data-function="status"] {
-    color: green; }
+    color: darkgreen; }

@@ -16,7 +16,8 @@ html
             p
               span(style='font-size:24px;cursor:pointer', onclick='openNav()') &#x2630;
           .logo
-            img.logo(src='./images/logo.png')
+            a(href='index.html')
+              img.logo(src='./images/logo.png')
           h2 To Do
 
     #instruction
@@ -24,7 +25,7 @@ html
         p For editing task name:
         li Click on Edit icon once to focus on input textbox
         li After enter new name, click on Edit icon again to save new name
-        
+
         script.
           function openNav() {
             document.getElementById("mySidenav").style.width = "130px";

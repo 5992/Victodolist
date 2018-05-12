@@ -63,7 +63,7 @@ button[disabled]{
 
 /* The navigation menu links */
 .sidenav a {
-    padding: 8px 8px 8px 15px;
+    padding: 30px 8px 8px 15px;
     text-decoration: none;
     font-size: 18px;
     color: #818181;
@@ -80,6 +80,7 @@ button[disabled]{
 .sidenav .closebtn {
     position: absolute;
     top: 0;
+    padding-top: 8px;
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
@@ -100,28 +101,22 @@ button[disabled]{
 }
 
 #task-form{ //add button textbox
-  //@include flex(row);
   input{
     float: left;
-    //flex:1;
     padding: 7px;
-    //padding-right: 0px;
     box-sizing: border-box;
     border: 1px solid $theme-color;
     width:80%;
-    //  margin:0;
   }
   input:focus{
     background-color:antiquewhite;
-    outline: none;
+    order: 3px solid dodgerblue;
   }
   button{
     background-color: #4CAF50;
     border: 0.5px solid transparent;
     color: white;
     padding: 7px;
-
-    //display: inline-block;
     font-size: 14px;
     width:20%;
   }
@@ -138,11 +133,11 @@ button[disabled]{
   width: 100%;
 
   li{
-    border-bottom: 0.5px solid #383735;//#cccccc;
-
+    border-bottom: 0.5px solid #4CAF50;//#cccccc;
+    box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24);
     .task-container{
         //background: linear-gradient(to right, #f7eca3, #fcf5c7);
-        background-color: #ddffdd;
+        background-color: white;//#ddffdd;
         border-left: 6px solid #4CAF50;
 
         @include flex(row);
@@ -150,6 +145,7 @@ button[disabled]{
         align-items: center;
 
         .task-name{
+              font-size: 14px;
              padding: 1em;
         }
         .task-buttons{
@@ -157,7 +153,7 @@ button[disabled]{
             button{
               width: 48px;
               height: 48px;
-              font-size: 1em;
+              font-size: 1.5em;
               background-color:transparent;
               border: 1px solid transparent;
               color: black;
@@ -173,20 +169,24 @@ button[disabled]{
             button#canceledit{
               font-size:12px;
               visibility:hidden;
-
-
+              width: auto;
             }
           }
       }
   }
+  li[data-status="false"]{
+    button[data-function="status"]{
+      color:darkgray;
+    }
+  }
+
   li[data-status="true"]{
     .task-name{
       text-decoration: line-through;
       opacity: 0.5;
-      //background-color: lightgray;
     }
     button[data-function="status"]{
-      color:green;
+      color:darkgreen;
     }
   }
 }
